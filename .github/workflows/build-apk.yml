@@ -26,11 +26,10 @@ jobs:
           java-version: '21'
           cache: gradle
 
-      - name: Grant Execute Permission to Gradle
-        run: chmod +x PrimeShowsApp/gradlew
-
       - name: Build Debug APK
-        run: ./gradlew assembleDebug
+        run: |
+          chmod +x ./gradlew
+          ./gradlew assembleDebug
         working-directory: PrimeShowsApp
 
       - name: Upload APK Artifact
